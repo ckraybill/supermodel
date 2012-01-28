@@ -66,6 +66,10 @@ module SuperModel
       def all
         collection.new(records.values.deep_dup)
       end
+
+      def pluck(name)
+        records.values.map(&name)
+      end
       
       def select(&block)
         collection.new(records.values.select(&block).deep_dup)
